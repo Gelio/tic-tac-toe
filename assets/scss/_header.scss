@@ -1,0 +1,11 @@
+.game-box-header {
+  width: 100%;
+  overflow: auto;
+  @include borderRadiusTop($borderRadius);
+
+  background-color: #e74c3c;
+}
+
+.header-text {
+  color: #bdc3c7;
+}

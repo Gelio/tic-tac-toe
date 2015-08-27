@@ -1,0 +1,75 @@
+html, body {
+  height: 100%; }
+
+body {
+  font-family: 'Oxygen', sans-serif;
+  background-color: black; }
+
+.game-box-wrapper {
+  /*display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;*/ }
+
+.game-box {
+  border-radius: 20px;
+  width: 100%; }
+  @media (min-width: 20em) {
+    .game-box {
+      width: 20em; } }
+  @media (min-width: 48em) {
+    .game-box {
+      width: 34em; } }
+
+.game-box-header {
+  width: 100%;
+  overflow: auto;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: #e74c3c; }
+
+.header-text {
+  color: #bdc3c7; }
+
+.game-box-controls-wrapper {
+  width: 100%;
+  overflow: auto;
+  background-color: #2abd68; }
+
+.game-box-controls {
+  width: 50%; }
+
+.controls-button {
+  float: left;
+  width: 50%;
+  border-left: solid;
+  padding-top: 10px;
+  padding-bottom: 10px; }
+  .controls-button:last-of-type {
+    border-right: solid; }
+
+.game-box-board {
+  width: 100%;
+  overflow: auto;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: #ecf0f1; }
+
+.board-row {
+  width: 100%;
+  border-bottom: solid 1px black; }
+  .board-row:last-of-type {
+    border-bottom: none; }
+
+.board-tile {
+  width: 33.3333%;
+  float: left;
+  cursor: pointer;
+  border-right: solid 1px; }
+  .board-tile:last-of-type {
+    border-right: none;
+    width: calc(33.3333% - 1px); }
+
+.board-tile-image {
+  width: 100%;
+  height: auto; }

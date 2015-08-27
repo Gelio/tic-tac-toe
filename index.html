@@ -5,11 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tic Tac Toe</title>
 
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body ng-app="ticTacToe">
 
+<div class="game-box-wrapper m-t-md">
+
+    <div class="game-box m-x-auto">
+        <header class="game-box-header text-center p-y">
+            <h1 class="header-text">Tic Tac Toe</h1>
+            <h2>Created by <a href="http://voreny.bitbucket.org/">Voreny</a></h2>
+        </header>
+
+        <div class="game-box-controls-wrapper">
+            <div class="game-box-controls m-x-auto text-center">
+                <div class="controls-button controls-x">
+                    X
+                </div>
+
+                <div class="controls-button controls-o">
+                    O
+                </div>
+            </div>
+        </div>
+
+        <div class="game-box-board">
+            <div class="board-row clearfix">
+                <div class="board-tile">
+                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image">
+                </div>
+
+                <div class="board-tile">
+                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image">
+                </div>
+
+                <div class="board-tile">
+                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image">
+                </div>
+            </div>
+
+            <div class="board-row clearfix">
+                <div class="board-tile">
+                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image">
+                </div>
+
+                <div class="board-tile">
+                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image">
+                </div>
+
+                <div class="board-tile">
+                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image">
+                </div>
+            </div>
+
+            <div class="board-row clearfix">
+                <div class="board-tile">
+                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image">
+                </div>
+
+                <div class="board-tile">
+                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image">
+                </div>
+
+                <div class="board-tile">
+                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
 <script src="main.js"></script>

@@ -1,0 +1,17 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Oxygen', sans-serif;
+  background-color: black;
+}
+
+$borderRadius: 20px;
+
+@import "assets/scss/mixins";
+
+@import "assets/scss/game-box";
+@import "assets/scss/header";
+@import "assets/scss/controls";
+@import "assets/scss/board";

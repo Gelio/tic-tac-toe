@@ -1,0 +1,24 @@
+.game-box-controls-wrapper {
+  width: 100%;
+  overflow: auto;
+
+  background-color: #2abd68;
+}
+
+.game-box-controls {
+  width: 50%;
+}
+
+.controls-button {
+  float: left;
+  width: 50%;
+
+  border-left: solid;
+
+  &:last-of-type {
+    border-right: solid;
+  }
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
