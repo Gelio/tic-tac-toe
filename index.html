@@ -7,90 +7,43 @@
 
     <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body ng-app="ticTacToe">
 
 <div class="game-box-wrapper m-y-md">
 
-    <div class="game-box m-x-auto">
+    <div class="game-box m-x-auto" ng-controller="GameCtrl">
         <header class="game-box-header text-center p-y">
-            <h1 class="header-text">Tic Tac Toe</h1>
+            <h1>Tic Tac Toe</h1>
             <h2>Created by <a href="http://voreny.bitbucket.org/">Voreny</a></h2>
         </header>
 
         <div class="game-box-controls-wrapper">
             <div class="game-box-controls m-x-auto text-center">
                 <div class="controls-button controls-x">
-                    <button type="button" class="control-button">X</button>
+                    <button type="button" class="control-button active" ng-class="{'active': playerSign == 1}" ng-click="changeSign(1)">
+                        <i class="fa fa-times"></i>
+                    </button>
                 </div>
 
                 <div class="controls-button controls-o">
-                    <button type="button" class="control-button">O</button>
+                    <button type="button" class="control-button"  ng-class="{'active': playerSign == -1}" ng-click="changeSign(-1)">O</button>
                 </div>
             </div>
         </div>
 
         <div class="game-box-board">
-            <div class="board-row clearfix">
-                <div class="board-tile">
-                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image blank">
-                    <img src="http://placehold.it/200x200" alt="X" class="board-tile-image x">
-                    <img src="http://placehold.it/200x200" alt="O" class="board-tile-image o">
-                </div>
 
-                <div class="board-tile">
-                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image blank">
-                    <img src="http://placehold.it/200x200" alt="X" class="board-tile-image x">
-                    <img src="http://placehold.it/200x200" alt="O" class="board-tile-image o">
-                </div>
-
-                <div class="board-tile">
-                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image blank">
-                    <img src="http://placehold.it/200x200" alt="X" class="board-tile-image x">
-                    <img src="http://placehold.it/200x200" alt="O" class="board-tile-image o">
+            <div class="board-row clearfix" ng-repeat="row in board track by $index">
+                <div class="board-tile" ng-click="playTile($parent.$index, $index)" ng-repeat="tile in row track by $index" ng-switch="board[$parent.$index][$index]">
+                    <img src="http://placehold.it/200x200/ffffff/000000" alt="Tile" class="board-tile-image blank" ng-switch-when="0">
+                    <img src="http://placehold.it/200x200/000000/ffffff" alt="X" class="board-tile-image x" ng-switch-when="1">
+                    <img src="http://placehold.it/200x200/ff0000/000000" alt="O" class="board-tile-image o" ng-switch-when="-1">
                 </div>
             </div>
 
-            <div class="board-row clearfix">
-                <div class="board-tile">
-                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image blank">
-                    <img src="http://placehold.it/200x200" alt="X" class="board-tile-image x">
-                    <img src="http://placehold.it/200x200" alt="O" class="board-tile-image o">
-                </div>
-
-                <div class="board-tile">
-                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image blank">
-                    <img src="http://placehold.it/200x200" alt="X" class="board-tile-image x">
-                    <img src="http://placehold.it/200x200" alt="O" class="board-tile-image o">
-                </div>
-
-                <div class="board-tile">
-                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image blank">
-                    <img src="http://placehold.it/200x200" alt="X" class="board-tile-image x">
-                    <img src="http://placehold.it/200x200" alt="O" class="board-tile-image o">
-                </div>
-            </div>
-
-            <div class="board-row clearfix">
-                <div class="board-tile">
-                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image blank">
-                    <img src="http://placehold.it/200x200" alt="X" class="board-tile-image x">
-                    <img src="http://placehold.it/200x200" alt="O" class="board-tile-image o">
-                </div>
-
-                <div class="board-tile">
-                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image blank">
-                    <img src="http://placehold.it/200x200" alt="X" class="board-tile-image x">
-                    <img src="http://placehold.it/200x200" alt="O" class="board-tile-image o">
-                </div>
-
-                <div class="board-tile">
-                    <img src="http://placehold.it/200x200" alt="Tile" class="board-tile-image blank">
-                    <img src="http://placehold.it/200x200" alt="X" class="board-tile-image x">
-                    <img src="http://placehold.it/200x200" alt="O" class="board-tile-image o">
-                </div>
-            </div>
         </div>
 
     </div>
@@ -98,6 +51,9 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.4.4/angular-animate.min.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="main.js"></script>
+<script src="resize-handler.js"></script>
 </body>
 </html>

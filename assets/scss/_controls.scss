@@ -53,5 +53,15 @@ button.control-button {
   height: 100%;
   padding: 10px 0;
   border: none;
+  background-color: darken(#3498db, 10%);
+
+  transition: all 0.5s linear;
+
+  font-size: 2em;
+}
+
+button.control-button.active {
   background-color: #3498db;
+  position: relative;
+  z-index: 1;
 }

@@ -1,24 +1,11 @@
 .game-box-board {
   width: 100%;
-  overflow: auto;
+  overflow: hidden;
   @include borderRadiusBottom($borderRadius);
 
   background-color: #ecf0f1;
   position: relative;
 }
-
-/*.game-box-board:before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  box-shadow: inset 0 10px 10px -10px black;
-  pointer-events: none;
-}*/
 
 
 // Rows
@@ -35,7 +22,7 @@
 
 // Tiles
 .board-tile {
-  width: 33.333333%;
+  width: 33.33%;
   float: left;
 
   cursor: pointer;
@@ -44,19 +31,33 @@
 
   &:last-of-type {
     border-right: none;
-    width: calc(33.333333% - 1px);
+    width: 33.341%;
   }
+
+  position: relative;
+  overflow: hidden;
 }
 
 .board-tile-image {
   width: 100%;
   height: auto;
 
-  display: none;
-  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transition: top 0.5s linear;
 }
 
-.board-tile-image.blank {
-  display: block;
-  opacity: 1;
+.board-tile-image.ng-leave.ng-leave-active {
+  top: 100%;
+}
+
+.board-tile-image.ng-leave,
+.board-tile-image.ng-enter.ng-enter-active {
+  top: 0;
+}
+
+.board-tile-image.ng-enter {
+  top: -100%;
 }
