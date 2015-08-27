@@ -4,6 +4,8 @@
   @include borderRadiusTop($borderRadius);
 
   background-color: #e74c3c;
+
+  border-bottom: solid 1px black;
 }
 
 .header-text {

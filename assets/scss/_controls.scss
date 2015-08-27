@@ -3,6 +3,29 @@
   overflow: auto;
 
   background-color: #2abd68;
+
+  border-bottom: solid 1px black;
+  position: relative;
+}
+
+.game-box-controls-wrapper:before, .game-box-controls-wrapper:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+}
+
+.game-box-controls-wrapper:before {
+  box-shadow: inset 0 10px 10px -10px black;
+}
+
+.game-box-controls-wrapper:after {
+  box-shadow: inset 0 -10px 10px -10px black;
 }
 
 .game-box-controls {
@@ -13,12 +36,22 @@
   float: left;
   width: 50%;
 
-  border-left: solid;
+  border-left: solid 1px black;
 
-  &:last-of-type {
-    border-right: solid;
+  &:first-of-type {
+    box-shadow: -2px 0 5px black;
   }
 
-  padding-top: 10px;
-  padding-bottom: 10px;
+  &:last-of-type {
+    box-shadow: 2px 0 5px black;
+    border-right: solid 1px black;
+  }
+}
+
+button.control-button {
+  width: 100%;
+  height: 100%;
+  padding: 10px 0;
+  border: none;
+  background-color: #3498db;
 }
