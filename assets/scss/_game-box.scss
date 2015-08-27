@@ -1,10 +1,11 @@
 .game-box-wrapper {
-  /*display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;*/
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 
-
+  @media (min-width: 34em) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .game-box {

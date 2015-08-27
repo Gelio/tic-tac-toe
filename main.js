@@ -8,6 +8,11 @@
             [0, 0, 0],
             [0, 0, 0]
         ];
+        $scope.highlighted = [
+            [false, false, false],
+            [false, false, false],
+            [false, false, false]
+        ];
 
         $scope.changeSign = function(newSign) {
             $scope.playerSign = newSign;
@@ -32,7 +37,9 @@
                 default:
                     console.log("error, unknown value in board at row " + row + " and column " + column, $scope.board);
                     break;
-            };
+            }
+
+            $scope.highlighted[row][column] = !$scope.highlighted[row][column];
         };
     }]);
 })();

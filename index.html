@@ -12,7 +12,7 @@
 </head>
 <body ng-app="ticTacToe">
 
-<div class="game-box-wrapper m-y-md">
+<div class="game-box-wrapper">
 
     <div class="game-box m-x-auto" ng-controller="GameCtrl">
         <header class="game-box-header text-center p-y">
@@ -29,7 +29,9 @@
                 </div>
 
                 <div class="controls-button controls-o">
-                    <button type="button" class="control-button"  ng-class="{'active': playerSign == -1}" ng-click="changeSign(-1)">O</button>
+                    <button type="button" class="control-button"  ng-class="{'active': playerSign == -1}" ng-click="changeSign(-1)">
+                        <i class="fa fa-circle-o"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -37,7 +39,7 @@
         <div class="game-box-board">
 
             <div class="board-row clearfix" ng-repeat="row in board track by $index">
-                <div class="board-tile" ng-click="playTile($parent.$index, $index)" ng-repeat="tile in row track by $index" ng-switch="board[$parent.$index][$index]">
+                <div class="board-tile" ng-click="playTile($parent.$index, $index)" ng-repeat="tile in row track by $index" ng-switch="board[$parent.$index][$index]" ng-class="{'active': highlighted[$parent.$index][$index]}">
                     <img src="http://placehold.it/200x200/ffffff/000000" alt="Tile" class="board-tile-image blank" ng-switch-when="0">
                     <img src="http://placehold.it/200x200/000000/ffffff" alt="X" class="board-tile-image x" ng-switch-when="1">
                     <img src="http://placehold.it/200x200/ff0000/000000" alt="O" class="board-tile-image o" ng-switch-when="-1">
