@@ -1,5 +1,5 @@
 body {
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: black; }
 
 .game-box-wrapper {
@@ -26,8 +26,7 @@ body {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   background-color: #e74c3c;
-  border-bottom: solid 1px black;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.5); }
+  border-bottom: solid 1px black; }
   .game-box-header h1 {
     color: #ecf0f1; }
   .game-box-header h2 {
@@ -147,3 +146,31 @@ button.control-button.active {
 
 .board-tile-image.ng-enter {
   top: -100%; }
+
+.message {
+  opacity: 0;
+  width: 100%;
+  visibility: hidden;
+  z-index: 999;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  -webkit-transition: opacity 0.5s;
+          transition: opacity 0.5s;
+  pointer-events: none;
+  text-align: center;
+  color: #ecf0f1; }
+
+.message.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto; }
+
+.message.win {
+  background-color: rgba(39, 174, 96, 0.6); }
+
+.message.lose {
+  background-color: rgba(192, 57, 43, 0.6); }

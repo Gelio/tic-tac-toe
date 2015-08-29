@@ -6,6 +6,7 @@
     <title>Tic Tac Toe</title>
 
     <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
@@ -53,10 +54,16 @@
 
 </div>
 
+
+<div class="message p-y-lg" ng-controller="MessageCtrl" ng-class="[messageHighlightClass, {'active': messageActive}]">
+    <h1 class="display-1">{{messageContents}}</h1>
+</div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
 <script src="https://code.angularjs.org/1.4.4/angular-animate.min.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="assets/js/tile.js"></script>
+<script src="assets/js/message-controller.js"></script>
 <script src="main.js"></script>
 <script src="resize-handler.js"></script>
 </body>

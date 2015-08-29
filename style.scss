@@ -1,5 +1,6 @@
 body {
-  font-family: 'Oxygen', sans-serif;
+  //font-family: 'Oxygen', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: black;
 }
 
@@ -8,9 +9,14 @@ $winColor: rgba(0, 255, 0, 0.5);
 $loseColor: rgba(255, 85, 107, 0.5);
 $unclickableColor: rgba(89, 184, 255, 0.5);
 
+$messageWinColor: #27ae60;
+$messageLoseColor: #c0392b;
+
 @import "assets/scss/mixins";
 
 @import "assets/scss/game-box";
 @import "assets/scss/header";
 @import "assets/scss/controls";
 @import "assets/scss/board";
+
+@import "assets/scss/message";

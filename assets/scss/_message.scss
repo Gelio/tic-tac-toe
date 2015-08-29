@@ -1,0 +1,33 @@
+.message {
+  //display: none;
+  opacity: 0;
+  width: 100%;
+  visibility: hidden;
+  z-index: 999;
+
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+
+  transition: opacity 0.5s;
+  pointer-events: none;
+
+  text-align: center;
+  color: #ecf0f1;
+}
+
+.message.active {
+  //display: block;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.message.win {
+  background-color: transparentize($messageWinColor, 0.4);
+}
+
+.message.lose {
+  background-color: transparentize($messageLoseColor, 0.4);
+}

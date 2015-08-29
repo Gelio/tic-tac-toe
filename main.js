@@ -10,9 +10,9 @@
     });
 
 
-    var app = angular.module("ticTacToe", ["ngAnimate"]);
+    var app = angular.module("ticTacToe", ["message", "ngAnimate"]);
 
-    app.controller("GameCtrl", ["$scope", "$timeout", function($scope, $timeout) {
+    app.controller("GameCtrl", ["$scope", "$rootScope", "$timeout", function($scope, $rootScope, $timeout) {
         $scope.playerSign = 1;  // 1 for X, -1 for O
         var computerSign = -1,
             gameInProgress = false;
@@ -81,9 +81,21 @@
 
                 if(sum == -3 || sum == 3) {
                     if(sum == 3*$scope.playerSign)      // player wins
+                    {
                         highlightTiles(winningSet, "win");
+                        $rootScope.$broadcast("showMessage", {
+                            highlightClass: "win",
+                            contents: "You win!"
+                        });
+                    }
                     else                                // player loses
+                    {
                         highlightTiles(winningSet, "lose");
+                        $rootScope.$broadcast("showMessage", {
+                            highlightClass: "lose",
+                            contents: "You lose!"
+                        });
+                    }
 
                     gameInProgress = false;
                     $timeout(newGame, 2000);
