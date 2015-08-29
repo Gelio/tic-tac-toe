@@ -116,6 +116,11 @@
                     // Draw
                     gameInProgress = false;
                     $timeout(newGame, 2000);
+
+                    $rootScope.$broadcast("showMessage", {
+                        highlightClass: "draw",
+                        contents: "Draw!"
+                    });
                 }
             }
         }

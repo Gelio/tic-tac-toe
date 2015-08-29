@@ -174,3 +174,6 @@ button.control-button.active {
 
 .message.lose {
   background-color: rgba(192, 57, 43, 0.6); }
+
+.message.draw {
+  background-color: rgba(127, 140, 141, 0.6); }

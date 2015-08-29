@@ -31,3 +31,8 @@
 .message.lose {
   background-color: transparentize($messageLoseColor, 0.4);
 }
+
+.message.draw {
+  background-color: transparentize($messageDrawColor, 0.4);
+  //color: #34495e;
+}
