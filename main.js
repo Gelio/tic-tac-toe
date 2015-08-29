@@ -42,17 +42,60 @@
         }
 
         function computerMove() {
-            var available = [];
-            $scope.board.forEach(function(row, rowIndex) {
-                row.forEach(function(tile, tileIndex) {
-                    if(tile === 0) {
-                        available.push(new Tile(rowIndex, tileIndex));
-                    }
-                });
-            });
+            var moveMade = false,
+                winningMoves = [],
+                losingMoves = [];
+            // Check if win/lose is possible
+            winningPositions.forEach(function(winningSet) {
+                var setInfo = {
+                    value: 0,
+                    blankTiles: []
+                };
 
-            var randomed = Math.floor(Math.random()*available.length);
-            $scope.board[available[randomed].row][available[randomed].column] = computerSign;
+                winningSet.forEach(function(tile) {
+                    var currVal = $scope.board[tile.row][tile.column];
+                    setInfo.value += currVal;
+
+                    if(currVal === 0)
+                        setInfo.blankTiles.push(tile);
+                });
+
+
+                if(setInfo.blankTiles.length == 1) {
+                    // see if there's an empty space
+                    var targetTile = setInfo.blankTiles[0];
+                    if(setInfo.value == 2*$scope.playerSign) {
+                        // player would win
+                        losingMoves.push(setInfo.blankTiles[0]);
+                    }
+                    else if(setInfo.value == 2*computerSign) {
+                        // computer can win
+                        winningMoves.push(setInfo.blankTiles[0]);
+                    }
+                }
+            });
+            if(winningMoves.length > 0) {
+                // make a winning move
+                $scope.board[winningMoves[0].row][winningMoves[0].column] = computerSign;
+            }
+            else if(losingMoves.length > 0) {
+                // prevent player from winning
+                $scope.board[losingMoves[0].row][losingMoves[0].column] = computerSign;
+            }
+            else {
+                // Otherwise pick a random tile
+                var available = [];
+                $scope.board.forEach(function(row, rowIndex) {
+                    row.forEach(function(tile, tileIndex) {
+                        if(tile === 0) {
+                            available.push(new Tile(rowIndex, tileIndex));
+                        }
+                    });
+                });
+
+                var randomed = Math.floor(Math.random()*available.length);
+                $scope.board[available[randomed].row][available[randomed].column] = computerSign;
+            }
 
             checkWinningCondition();
         }
