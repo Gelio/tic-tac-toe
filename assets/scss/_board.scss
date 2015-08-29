@@ -45,32 +45,21 @@
 
 
 
-
-// Winning tile overlay
-.board-tile:after {
-  content: '';
-  display: block;
-
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-
+// Winning tile background settings
+.board-tile {
   background-color: transparent;
-
   transition: background-color 0.5s;
 }
 
-.board-tile.unclickable:after {
+.board-tile.unclickable {
   background-color: $unclickableColor;
 }
 
-.board-tile.win:after {
+.board-tile.win {
   background-color: $winColor;
 }
 
-.board-tile.lose:after {
+.board-tile.lose {
   background-color: $loseColor;
 }
 
