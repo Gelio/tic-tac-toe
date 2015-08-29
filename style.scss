@@ -4,7 +4,9 @@ body {
 }
 
 $borderRadius: 20px;
-$winColor: rgba(241, 196, 15, 0.5);
+$winColor: rgba(0, 255, 0, 0.5);
+$loseColor: rgba(255, 85, 107, 0.5);
+$unclickableColor: rgba(89, 184, 255, 0.5);
 
 @import "assets/scss/mixins";
 

@@ -62,8 +62,16 @@
   transition: background-color 0.5s;
 }
 
-.board-tile.active:after {
+.board-tile.unclickable:after {
+  background-color: $unclickableColor;
+}
+
+.board-tile.win:after {
   background-color: $winColor;
+}
+
+.board-tile.lose:after {
+  background-color: $loseColor;
 }
 
 

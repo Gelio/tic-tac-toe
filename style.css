@@ -127,8 +127,14 @@ button.control-button.active {
   -webkit-transition: background-color 0.5s;
           transition: background-color 0.5s; }
 
-.board-tile.active:after {
-  background-color: rgba(241, 196, 15, 0.5); }
+.board-tile.unclickable:after {
+  background-color: rgba(89, 184, 255, 0.5); }
+
+.board-tile.win:after {
+  background-color: rgba(0, 255, 0, 0.5); }
+
+.board-tile.lose:after {
+  background-color: rgba(255, 85, 107, 0.5); }
 
 .board-tile-image {
   width: 100%;
