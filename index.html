@@ -40,9 +40,10 @@
 
             <div class="board-row clearfix" ng-repeat="row in board track by $index">
                 <div class="board-tile" ng-click="playTile($parent.$index, $index)" ng-repeat="tile in row track by $index" ng-switch="board[$parent.$index][$index]" ng-class="{'active': highlighted[$parent.$index][$index]}">
-                    <img src="http://placehold.it/200x200/ffffff/000000" alt="Tile" class="board-tile-image blank" ng-switch-when="0">
-                    <img src="http://placehold.it/200x200/000000/ffffff" alt="X" class="board-tile-image x" ng-switch-when="1">
-                    <img src="http://placehold.it/200x200/ff0000/000000" alt="O" class="board-tile-image o" ng-switch-when="-1">
+                    <div class="board-tile-image blank" ng-switch-when="0"></div>
+                    <!--<img src="http://placehold.it/200x200/ffffff/000000" alt="Tile" class="board-tile-image blank" ng-switch-when="0">-->
+                    <img src="assets/images/sign-x.png" alt="X" class="board-tile-image x" ng-switch-when="1">
+                    <img src="assets/images/sign-o.png" alt="O" class="board-tile-image o" ng-switch-when="-1">
                 </div>
             </div>
 
@@ -55,6 +56,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
 <script src="https://code.angularjs.org/1.4.4/angular-animate.min.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="assets/js/winning-positions.js"></script>
 <script src="main.js"></script>
 <script src="resize-handler.js"></script>
 </body>
